@@ -1,13 +1,16 @@
-var http = require('http');
-var port = process.env.PORT ||1337;
+var fs = require("fs");
 
-http.createServer(function(req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  var content = '<html><head><title>A sample page served in Node.js</title></head>';
-  content = content + '<body>Some content</body></html>';
+var options = {
+   host: 'localhost',
+   port: '1337',
+   path: 'input.txt.rtf'  
+};
 
-  res.end(content);
-}).listen(port);
-
-console.log('Server running on port http:127.0.0.1:1337 /')
-  console.log(body);
+fs.readFile('input.txt.rtf', function (err, data) {
+   if (err){
+      console.log(err.stack);
+      return;
+   }
+   console.log(data.toString());
+});
+console.log("Program Ended");

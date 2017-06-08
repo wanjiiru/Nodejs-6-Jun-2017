@@ -1,6 +1,6 @@
 var http = require('http');
  
-var port = 1337;
+var port = 8080;
  
 var s = http.createServer();
 s.on('request', function(request, response) {
